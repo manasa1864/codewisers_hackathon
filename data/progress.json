@@ -9,5 +9,16 @@
         "4": false
       }
     }
+  },
+  "manasa2006__hft_quant__jane_street__research_scientist": {
+    "DSA": {
+      "dsa-1": {
+        "0": true,
+        "1": true,
+        "2": true,
+        "3": true,
+        "4": true
+      }
+    }
   }
 }

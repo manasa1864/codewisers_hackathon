@@ -42,5 +42,48 @@
         "attempt": 2
       }
     ]
+  },
+  "manasa2006__hft_quant__jane_street__research_scientist": {
+    "profile_id": "manasa2006__hft_quant__jane_street__research_scientist",
+    "username": "manasa2006",
+    "category": "HFT / Quant",
+    "company": "Jane Street",
+    "role": "Research Scientist",
+    "sections": [
+      "DSA",
+      "CS Fundamentals"
+    ],
+    "created_at": "2026-04-03",
+    "test_completed": true,
+    "test_count": 2,
+    "scores": {
+      "dsa_score": 0.0,
+      "cs_score": 6.7,
+      "system_design_score": 0.0,
+      "level": "beginner"
+    },
+    "readiness_score": 3.41,
+    "test_history": [
+      {
+        "date": "2026-04-03",
+        "scores": {
+          "dsa_score": 20.0,
+          "cs_score": 0.0,
+          "system_design_score": 0.0,
+          "level": "beginner"
+        },
+        "attempt": 1
+      },
+      {
+        "date": "2026-04-03",
+        "scores": {
+          "dsa_score": 0.0,
+          "cs_score": 6.7,
+          "system_design_score": 0.0,
+          "level": "beginner"
+        },
+        "attempt": 2
+      }
+    ]
   }
 }
