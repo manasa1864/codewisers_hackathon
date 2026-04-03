@@ -7,7 +7,7 @@
 ## ⚡ Quick Start
 
 ```bash
-uvicorn main:app --reload --port 8000 --host 127.0.0.1
+uvicorn main:app --port 8000
 ```
 
 Then open **http://localhost:8000** in your browser.
