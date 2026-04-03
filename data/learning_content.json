@@ -1,0 +1,1209 @@
+{
+  "DSA": [
+    {
+      "id": "dsa-1",
+      "title": "Learn the Basics",
+      "problems": [
+        {
+          "name": "Time and Space Complexity",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/time-complexity-and-space-complexity/",
+          "done": false
+        },
+        {
+          "name": "Recursion Basics",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/introduction-to-recursion-data-structure-and-algorithm-tutorials/",
+          "done": false
+        },
+        {
+          "name": "Pattern Problems",
+          "leetcode": "https://leetcode.com/problems/print-words-vertically/",
+          "blog": "https://www.geeksforgeeks.org/pattern-printing-gfg/",
+          "done": false
+        },
+        {
+          "name": "Math: Palindrome and Digits",
+          "leetcode": "https://leetcode.com/problems/palindrome-number/",
+          "blog": "https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/",
+          "done": false
+        },
+        {
+          "name": "Math: GCD, LCM, Primes",
+          "leetcode": "https://leetcode.com/problems/count-primes/",
+          "blog": "https://www.geeksforgeeks.org/c-program-find-gcd-hcf-two-numbers/",
+          "done": false
+        },
+        {
+          "name": "Recursion on Arrays",
+          "leetcode": "https://leetcode.com/problems/power-of-two/",
+          "blog": "https://www.geeksforgeeks.org/recursive-programs-to-find-minimum-maximum-elements-of-array/",
+          "done": false
+        },
+        {
+          "name": "Hashing Basics",
+          "leetcode": "https://leetcode.com/problems/two-sum/",
+          "blog": "https://www.geeksforgeeks.org/hashing-data-structure/",
+          "done": false
+        },
+        {
+          "name": "Java / C++ / Python STL Basics",
+          "leetcode": "",
+          "blog": "https://takeuforward.org/strivers-a2z-dsa-course/",
+          "done": false
+        }
+      ],
+      "total": 8
+    },
+    {
+      "id": "dsa-2",
+      "title": "Sorting Techniques",
+      "problems": [
+        {
+          "name": "Selection Sort",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/selection-sort/",
+          "done": false
+        },
+        {
+          "name": "Bubble Sort",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/bubble-sort/",
+          "done": false
+        },
+        {
+          "name": "Insertion Sort",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/insertion-sort/",
+          "done": false
+        },
+        {
+          "name": "Merge Sort",
+          "leetcode": "https://leetcode.com/problems/sort-an-array/",
+          "blog": "https://www.geeksforgeeks.org/merge-sort/",
+          "done": false
+        },
+        {
+          "name": "Quick Sort",
+          "leetcode": "https://leetcode.com/problems/sort-an-array/",
+          "blog": "https://www.geeksforgeeks.org/quick-sort/",
+          "done": false
+        },
+        {
+          "name": "Recursive Bubble and Insertion Sort",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/recursive-bubble-sort/",
+          "done": false
+        },
+        {
+          "name": "Count Inversions",
+          "leetcode": "https://leetcode.com/problems/count-of-smaller-numbers-after-self/",
+          "blog": "https://www.geeksforgeeks.org/counting-inversions/",
+          "done": false
+        }
+      ],
+      "total": 7
+    },
+    {
+      "id": "dsa-3",
+      "title": "Arrays",
+      "problems": [
+        {
+          "name": "Largest Element in Array",
+          "leetcode": "https://leetcode.com/problems/find-the-maximum-achievable-number/",
+          "blog": "https://www.geeksforgeeks.org/largest-element-in-an-array-using-stl/",
+          "done": false
+        },
+        {
+          "name": "Second Largest Element",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/find-second-largest-element-in-array/",
+          "done": false
+        },
+        {
+          "name": "Check if Array is Sorted",
+          "leetcode": "https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Remove Duplicates from Sorted Array",
+          "leetcode": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Rotate Array by K",
+          "leetcode": "https://leetcode.com/problems/rotate-array/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Move Zeros to End",
+          "leetcode": "https://leetcode.com/problems/move-zeroes/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Union of Two Sorted Arrays",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/union-and-intersection-of-two-sorted-arrays-2/",
+          "done": false
+        },
+        {
+          "name": "Missing Number",
+          "leetcode": "https://leetcode.com/problems/missing-number/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Max Consecutive Ones",
+          "leetcode": "https://leetcode.com/problems/max-consecutive-ones/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Single Number (XOR)",
+          "leetcode": "https://leetcode.com/problems/single-number/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Two Sum",
+          "leetcode": "https://leetcode.com/problems/two-sum/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Sort 0s 1s 2s - Dutch National Flag",
+          "leetcode": "https://leetcode.com/problems/sort-colors/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Majority Element (Boyer-Moore)",
+          "leetcode": "https://leetcode.com/problems/majority-element/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Maximum Subarray - Kadane's",
+          "leetcode": "https://leetcode.com/problems/maximum-subarray/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Best Time to Buy and Sell Stock",
+          "leetcode": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Leaders in an Array",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/leaders-in-an-array/",
+          "done": false
+        },
+        {
+          "name": "Next Permutation",
+          "leetcode": "https://leetcode.com/problems/next-permutation/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Longest Consecutive Sequence",
+          "leetcode": "https://leetcode.com/problems/longest-consecutive-sequence/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Set Matrix Zeroes",
+          "leetcode": "https://leetcode.com/problems/set-matrix-zeroes/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Rearrange Elements by Sign",
+          "leetcode": "https://leetcode.com/problems/rearrange-array-elements-by-sign/",
+          "blog": "",
+          "done": false
+        }
+      ],
+      "total": 20
+    },
+    {
+      "id": "dsa-4",
+      "title": "Binary Search",
+      "problems": [
+        {
+          "name": "Binary Search Basics",
+          "leetcode": "https://leetcode.com/problems/binary-search/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Lower and Upper Bound",
+          "leetcode": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Search in Rotated Sorted Array",
+          "leetcode": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Find Peak Element",
+          "leetcode": "https://leetcode.com/problems/find-peak-element/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Square Root via Binary Search",
+          "leetcode": "https://leetcode.com/problems/sqrtx/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Find Minimum in Rotated Array",
+          "leetcode": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Koko Eating Bananas",
+          "leetcode": "https://leetcode.com/problems/koko-eating-bananas/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Capacity to Ship Packages",
+          "leetcode": "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/",
+          "blog": "",
+          "done": false
+        }
+      ],
+      "total": 8
+    },
+    {
+      "id": "dsa-5",
+      "title": "Strings",
+      "problems": [
+        {
+          "name": "Reverse Words in a String",
+          "leetcode": "https://leetcode.com/problems/reverse-words-in-a-string/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Longest Palindromic Substring",
+          "leetcode": "https://leetcode.com/problems/longest-palindromic-substring/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Roman to Integer",
+          "leetcode": "https://leetcode.com/problems/roman-to-integer/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Valid Anagram",
+          "leetcode": "https://leetcode.com/problems/valid-anagram/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Count and Say",
+          "leetcode": "https://leetcode.com/problems/count-and-say/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Implement strStr - KMP",
+          "leetcode": "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/",
+          "blog": "https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/",
+          "done": false
+        },
+        {
+          "name": "String to Integer atoi",
+          "leetcode": "https://leetcode.com/problems/string-to-integer-atoi/",
+          "blog": "",
+          "done": false
+        }
+      ],
+      "total": 7
+    },
+    {
+      "id": "dsa-6",
+      "title": "Linked List",
+      "problems": [
+        {
+          "name": "Reverse a Linked List",
+          "leetcode": "https://leetcode.com/problems/reverse-linked-list/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Middle of Linked List",
+          "leetcode": "https://leetcode.com/problems/middle-of-the-linked-list/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Merge Two Sorted Lists",
+          "leetcode": "https://leetcode.com/problems/merge-two-sorted-lists/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Detect Cycle - Floyd's Algorithm",
+          "leetcode": "https://leetcode.com/problems/linked-list-cycle/",
+          "blog": "https://www.geeksforgeeks.org/detect-loop-in-a-linked-list/",
+          "done": false
+        },
+        {
+          "name": "Remove Nth Node from End",
+          "leetcode": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Add Two Numbers",
+          "leetcode": "https://leetcode.com/problems/add-two-numbers/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Copy List with Random Pointer",
+          "leetcode": "https://leetcode.com/problems/copy-list-with-random-pointer/",
+          "blog": "",
+          "done": false
+        }
+      ],
+      "total": 7
+    },
+    {
+      "id": "dsa-7",
+      "title": "Recursion and Backtracking",
+      "problems": [
+        {
+          "name": "Combination Sum",
+          "leetcode": "https://leetcode.com/problems/combination-sum/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Subsets - Power Set",
+          "leetcode": "https://leetcode.com/problems/subsets/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Permutations",
+          "leetcode": "https://leetcode.com/problems/permutations/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "N-Queens",
+          "leetcode": "https://leetcode.com/problems/n-queens/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Sudoku Solver",
+          "leetcode": "https://leetcode.com/problems/sudoku-solver/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Word Search",
+          "leetcode": "https://leetcode.com/problems/word-search/",
+          "blog": "",
+          "done": false
+        }
+      ],
+      "total": 6
+    },
+    {
+      "id": "dsa-8",
+      "title": "Bit Manipulation",
+      "problems": [
+        {
+          "name": "Check if a Bit is Set",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/check-whether-k-th-bit-set-or-not/",
+          "done": false
+        },
+        {
+          "name": "Set and Unset a Bit",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/set-unset-bit/",
+          "done": false
+        },
+        {
+          "name": "Power of 2 Check",
+          "leetcode": "https://leetcode.com/problems/power-of-two/",
+          "blog": "https://www.geeksforgeeks.org/program-to-find-whether-a-no-is-power-of-two/",
+          "done": false
+        },
+        {
+          "name": "Count Set Bits - Hamming Weight",
+          "leetcode": "https://leetcode.com/problems/number-of-1-bits/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Single Number via XOR",
+          "leetcode": "https://leetcode.com/problems/single-number/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "XOR of Numbers in a Range",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/find-xor-of-all-elements-in-an-array/",
+          "done": false
+        }
+      ],
+      "total": 6
+    },
+    {
+      "id": "dsa-9",
+      "title": "Stack and Queue",
+      "problems": [
+        {
+          "name": "Valid Parentheses",
+          "leetcode": "https://leetcode.com/problems/valid-parentheses/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Min Stack",
+          "leetcode": "https://leetcode.com/problems/min-stack/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Next Greater Element",
+          "leetcode": "https://leetcode.com/problems/next-greater-element-i/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Largest Rectangle in Histogram",
+          "leetcode": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Sliding Window Maximum",
+          "leetcode": "https://leetcode.com/problems/sliding-window-maximum/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Implement Queue using Stacks",
+          "leetcode": "https://leetcode.com/problems/implement-queue-using-stacks/",
+          "blog": "",
+          "done": false
+        }
+      ],
+      "total": 6
+    },
+    {
+      "id": "dsa-10",
+      "title": "Trees - Binary and BST",
+      "problems": [
+        {
+          "name": "Inorder, Preorder, Postorder Traversal",
+          "leetcode": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Height of Binary Tree",
+          "leetcode": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Diameter of Binary Tree",
+          "leetcode": "https://leetcode.com/problems/diameter-of-binary-tree/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Check Balanced Binary Tree",
+          "leetcode": "https://leetcode.com/problems/balanced-binary-tree/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Same Tree",
+          "leetcode": "https://leetcode.com/problems/same-tree/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Invert Binary Tree",
+          "leetcode": "https://leetcode.com/problems/invert-binary-tree/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "LCA of Binary Tree",
+          "leetcode": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Zigzag Level Order Traversal",
+          "leetcode": "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Binary Tree Maximum Path Sum",
+          "leetcode": "https://leetcode.com/problems/binary-tree-maximum-path-sum/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Construct Tree from Inorder and Preorder",
+          "leetcode": "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/",
+          "blog": "",
+          "done": false
+        }
+      ],
+      "total": 10
+    },
+    {
+      "id": "dsa-11",
+      "title": "Graphs",
+      "problems": [
+        {
+          "name": "BFS of Graph",
+          "leetcode": "https://leetcode.com/problems/number-of-islands/",
+          "blog": "https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/",
+          "done": false
+        },
+        {
+          "name": "DFS of Graph",
+          "leetcode": "https://leetcode.com/problems/number-of-islands/",
+          "blog": "https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/",
+          "done": false
+        },
+        {
+          "name": "Cycle Detection in Undirected Graph",
+          "leetcode": "https://leetcode.com/problems/course-schedule/",
+          "blog": "https://www.geeksforgeeks.org/detect-cycle-undirected-graph/",
+          "done": false
+        },
+        {
+          "name": "Topological Sort - Kahn and DFS",
+          "leetcode": "https://leetcode.com/problems/course-schedule-ii/",
+          "blog": "https://www.geeksforgeeks.org/topological-sorting/",
+          "done": false
+        },
+        {
+          "name": "Dijkstra's Shortest Path",
+          "leetcode": "https://leetcode.com/problems/network-delay-time/",
+          "blog": "https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/",
+          "done": false
+        },
+        {
+          "name": "Bellman-Ford Algorithm",
+          "leetcode": "https://leetcode.com/problems/cheapest-flights-within-k-stops/",
+          "blog": "https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/",
+          "done": false
+        },
+        {
+          "name": "Floyd Warshall All-Pairs Shortest Path",
+          "leetcode": "https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/",
+          "blog": "https://www.geeksforgeeks.org/floyd-warshall-algorithm-dp-16/",
+          "done": false
+        },
+        {
+          "name": "Kruskal's MST with Union-Find",
+          "leetcode": "https://leetcode.com/problems/min-cost-to-connect-all-points/",
+          "blog": "https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/",
+          "done": false
+        }
+      ],
+      "total": 8
+    },
+    {
+      "id": "dsa-12",
+      "title": "Dynamic Programming",
+      "problems": [
+        {
+          "name": "Fibonacci - Memoization and Tabulation",
+          "leetcode": "https://leetcode.com/problems/fibonacci-number/",
+          "blog": "https://www.geeksforgeeks.org/program-for-nth-fibonacci-number/",
+          "done": false
+        },
+        {
+          "name": "Climbing Stairs",
+          "leetcode": "https://leetcode.com/problems/climbing-stairs/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "0 or 1 Knapsack",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/",
+          "done": false
+        },
+        {
+          "name": "Longest Common Subsequence",
+          "leetcode": "https://leetcode.com/problems/longest-common-subsequence/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Longest Increasing Subsequence",
+          "leetcode": "https://leetcode.com/problems/longest-increasing-subsequence/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Coin Change - Minimum Coins",
+          "leetcode": "https://leetcode.com/problems/coin-change/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Edit Distance",
+          "leetcode": "https://leetcode.com/problems/edit-distance/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "House Robber",
+          "leetcode": "https://leetcode.com/problems/house-robber/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Partition Equal Subset Sum",
+          "leetcode": "https://leetcode.com/problems/partition-equal-subset-sum/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Matrix Chain Multiplication",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/matrix-chain-multiplication-dp-8/",
+          "done": false
+        }
+      ],
+      "total": 10
+    },
+    {
+      "id": "dsa-13",
+      "title": "Greedy Algorithms",
+      "problems": [
+        {
+          "name": "Activity Selection and Non-Overlapping Intervals",
+          "leetcode": "https://leetcode.com/problems/non-overlapping-intervals/",
+          "blog": "https://www.geeksforgeeks.org/activity-selection-problem-greedy-algo-1/",
+          "done": false
+        },
+        {
+          "name": "Fractional Knapsack",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/fractional-knapsack-problem/",
+          "done": false
+        },
+        {
+          "name": "Job Sequencing with Deadlines",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/job-sequencing-problem/",
+          "done": false
+        },
+        {
+          "name": "Minimum Platforms Required",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/minimum-number-platforms-required-railwaybus-station/",
+          "done": false
+        },
+        {
+          "name": "Jump Game",
+          "leetcode": "https://leetcode.com/problems/jump-game/",
+          "blog": "",
+          "done": false
+        }
+      ],
+      "total": 5
+    },
+    {
+      "id": "dsa-14",
+      "title": "Tries",
+      "problems": [
+        {
+          "name": "Implement Trie - Insert, Search, StartsWith",
+          "leetcode": "https://leetcode.com/problems/implement-trie-prefix-tree/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Longest Common Prefix",
+          "leetcode": "https://leetcode.com/problems/longest-common-prefix/",
+          "blog": "https://www.geeksforgeeks.org/longest-common-prefix-using-trie/",
+          "done": false
+        },
+        {
+          "name": "Maximum XOR of Two Numbers",
+          "leetcode": "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Word Search II - Trie and Backtracking",
+          "leetcode": "https://leetcode.com/problems/word-search-ii/",
+          "blog": "",
+          "done": false
+        }
+      ],
+      "total": 4
+    },
+    {
+      "id": "dsa-15",
+      "title": "Heaps and Priority Queue",
+      "problems": [
+        {
+          "name": "Kth Largest Element in Array",
+          "leetcode": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Top K Frequent Elements",
+          "leetcode": "https://leetcode.com/problems/top-k-frequent-elements/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Merge K Sorted Lists",
+          "leetcode": "https://leetcode.com/problems/merge-k-sorted-lists/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "Find Median from Data Stream",
+          "leetcode": "https://leetcode.com/problems/find-median-from-data-stream/",
+          "blog": "",
+          "done": false
+        }
+      ],
+      "total": 4
+    }
+  ],
+  "CS Fundamentals": [
+    {
+      "id": "cs-1",
+      "title": "Operating Systems",
+      "problems": [
+        {
+          "name": "Process vs Thread",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/difference-between-process-and-thread/",
+          "done": false
+        },
+        {
+          "name": "CPU Scheduling Algorithms",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/cpu-scheduling-in-operating-systems/",
+          "done": false
+        },
+        {
+          "name": "Deadlock Conditions and Prevention",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/introduction-of-deadlock-in-operating-system/",
+          "done": false
+        },
+        {
+          "name": "Semaphore vs Mutex",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/semaphores-in-operating-system/",
+          "done": false
+        },
+        {
+          "name": "Virtual Memory and Paging",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/virtual-memory-in-operating-system/",
+          "done": false
+        },
+        {
+          "name": "Page Replacement Algorithms LRU FIFO Optimal",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/page-replacement-algorithms-in-operating-systems/",
+          "done": false
+        },
+        {
+          "name": "Inter-Process Communication IPC",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/inter-process-communication-ipc/",
+          "done": false
+        },
+        {
+          "name": "System Calls",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/introduction-of-system-call/",
+          "done": false
+        }
+      ],
+      "total": 8
+    },
+    {
+      "id": "cs-2",
+      "title": "Database Management Systems",
+      "problems": [
+        {
+          "name": "ER Diagrams and Schema Design",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/introduction-of-er-model/",
+          "done": false
+        },
+        {
+          "name": "SQL - SELECT JOIN GROUP BY",
+          "leetcode": "https://leetcode.com/problems/combine-two-tables/",
+          "blog": "https://www.geeksforgeeks.org/sql-join-set-1-inner-left-right-and-full-joins/",
+          "done": false
+        },
+        {
+          "name": "Normalization 1NF 2NF 3NF BCNF",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/normal-forms-in-dbms/",
+          "done": false
+        },
+        {
+          "name": "ACID Properties",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/acid-properties-in-dbms/",
+          "done": false
+        },
+        {
+          "name": "Indexing B-Tree and Hash",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/indexing-in-databases-set-1/",
+          "done": false
+        },
+        {
+          "name": "Transactions and Isolation Levels",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/transaction-isolation-levels-dbms/",
+          "done": false
+        },
+        {
+          "name": "SQL Aggregate Functions",
+          "leetcode": "https://leetcode.com/problems/department-highest-salary/",
+          "blog": "",
+          "done": false
+        },
+        {
+          "name": "NoSQL vs SQL Decision Guide",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/difference-between-sql-and-nosql/",
+          "done": false
+        }
+      ],
+      "total": 8
+    },
+    {
+      "id": "cs-3",
+      "title": "Computer Networks",
+      "problems": [
+        {
+          "name": "OSI Model 7 Layers",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/layers-of-osi-model/",
+          "done": false
+        },
+        {
+          "name": "TCP vs UDP",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/differences-between-tcp-and-udp/",
+          "done": false
+        },
+        {
+          "name": "HTTP and HTTPS Methods and Status Codes",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/http-full-form/",
+          "done": false
+        },
+        {
+          "name": "DNS Resolution Process",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/domain-name-system-dns-in-application-layer/",
+          "done": false
+        },
+        {
+          "name": "IP Addressing and Subnetting",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/introduction-classful-ip-addressing/",
+          "done": false
+        },
+        {
+          "name": "Routing Protocols RIP OSPF BGP",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/routing-protocols-set-2-distance-vector-routing/",
+          "done": false
+        },
+        {
+          "name": "Sockets and Port Numbers",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/socket-programming-cc/",
+          "done": false
+        }
+      ],
+      "total": 7
+    },
+    {
+      "id": "cs-4",
+      "title": "OOP and Design Concepts",
+      "problems": [
+        {
+          "name": "4 Pillars of OOP",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/object-oriented-programming-oops-concept-in-java/",
+          "done": false
+        },
+        {
+          "name": "SOLID Principles",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/solid-principle-in-programming-understand-with-real-life-examples/",
+          "done": false
+        },
+        {
+          "name": "Design Patterns Overview",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/software-design-patterns/",
+          "done": false
+        },
+        {
+          "name": "Composition vs Inheritance",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/favoring-composition-over-inheritance-in-java-with-examples/",
+          "done": false
+        },
+        {
+          "name": "Abstract Class vs Interface",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/difference-between-abstract-class-and-interface-in-java/",
+          "done": false
+        }
+      ],
+      "total": 5
+    }
+  ],
+  "System Design": [
+    {
+      "id": "sd-1",
+      "title": "System Design Fundamentals",
+      "problems": [
+        {
+          "name": "Scalability Vertical vs Horizontal",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/system-design-horizontal-and-vertical-scaling/",
+          "done": false
+        },
+        {
+          "name": "Load Balancing Algorithms",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/load-balancing-algorithms/",
+          "done": false
+        },
+        {
+          "name": "CAP Theorem",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/the-cap-theorem-in-dbms/",
+          "done": false
+        },
+        {
+          "name": "Latency vs Throughput",
+          "leetcode": "",
+          "blog": "https://systemdesign.one/latency-vs-throughput/",
+          "done": false
+        },
+        {
+          "name": "Availability and SLA SLO SLI",
+          "leetcode": "",
+          "blog": "https://sre.google/sre-book/service-level-objectives/",
+          "done": false
+        }
+      ],
+      "total": 5
+    },
+    {
+      "id": "sd-2",
+      "title": "Database and Storage Design",
+      "problems": [
+        {
+          "name": "SQL vs NoSQL Decision Guide",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/difference-between-sql-and-nosql/",
+          "done": false
+        },
+        {
+          "name": "Database Sharding Strategies",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/database-sharding/",
+          "done": false
+        },
+        {
+          "name": "Database Replication Primary and Replica",
+          "leetcode": "",
+          "blog": "https://architecturenotes.co/database-sharding-explained/",
+          "done": false
+        },
+        {
+          "name": "Consistent Hashing",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/consistent-hashing/",
+          "done": false
+        }
+      ],
+      "total": 4
+    },
+    {
+      "id": "sd-3",
+      "title": "Caching Strategies",
+      "problems": [
+        {
+          "name": "Cache Aside Write-Through Write-Back Patterns",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/caching-strategies/",
+          "done": false
+        },
+        {
+          "name": "Redis vs Memcached",
+          "leetcode": "",
+          "blog": "https://aws.amazon.com/elasticache/redis-vs-memcached/",
+          "done": false
+        },
+        {
+          "name": "Cache Invalidation TTL and Event-Based",
+          "leetcode": "",
+          "blog": "https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/",
+          "done": false
+        },
+        {
+          "name": "CDN and Edge Caching",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/content-delivery-network-cdn/",
+          "done": false
+        }
+      ],
+      "total": 4
+    },
+    {
+      "id": "sd-4",
+      "title": "Message Queues and Async",
+      "problems": [
+        {
+          "name": "Kafka vs RabbitMQ",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/kafka-vs-rabbitmq/",
+          "done": false
+        },
+        {
+          "name": "Event-Driven Architecture",
+          "leetcode": "",
+          "blog": "https://aws.amazon.com/event-driven-architecture/",
+          "done": false
+        },
+        {
+          "name": "Dead Letter Queues DLQ",
+          "leetcode": "",
+          "blog": "https://www.cloudamqp.com/blog/when-and-how-to-use-the-rabbitmq-dead-letter-exchange.html",
+          "done": false
+        }
+      ],
+      "total": 3
+    },
+    {
+      "id": "sd-5",
+      "title": "Microservices and APIs",
+      "problems": [
+        {
+          "name": "Monolith vs Microservices",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/monolithic-vs-microservices-architecture/",
+          "done": false
+        },
+        {
+          "name": "API Gateway Pattern",
+          "leetcode": "",
+          "blog": "https://microservices.io/patterns/apigateway.html",
+          "done": false
+        },
+        {
+          "name": "Service Discovery",
+          "leetcode": "",
+          "blog": "https://microservices.io/patterns/client-side-discovery.html",
+          "done": false
+        },
+        {
+          "name": "Circuit Breaker Pattern",
+          "leetcode": "",
+          "blog": "https://martinfowler.com/bliki/CircuitBreaker.html",
+          "done": false
+        },
+        {
+          "name": "Saga Pattern for Distributed Transactions",
+          "leetcode": "",
+          "blog": "https://microservices.io/patterns/data/saga.html",
+          "done": false
+        }
+      ],
+      "total": 5
+    },
+    {
+      "id": "sd-6",
+      "title": "Real-World Case Studies",
+      "problems": [
+        {
+          "name": "Design URL Shortener TinyURL",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/system-design-url-shortening-service/",
+          "done": false
+        },
+        {
+          "name": "Design Twitter News Feed",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/design-twitter-a-system-design-interview-question/",
+          "done": false
+        },
+        {
+          "name": "Design Uber Ride Sharing",
+          "leetcode": "",
+          "blog": "https://highscalability.com/uber-architecture-and-system-design/",
+          "done": false
+        },
+        {
+          "name": "Design YouTube Video Platform",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/design-video-sharing-system-like-youtube/",
+          "done": false
+        },
+        {
+          "name": "Design WhatsApp Chat System",
+          "leetcode": "",
+          "blog": "https://highscalability.com/whatsapp-architecture-facebook-bought-for-19-billion/",
+          "done": false
+        },
+        {
+          "name": "Design Google Drive Cloud Storage",
+          "leetcode": "",
+          "blog": "https://www.geeksforgeeks.org/design-dropbox-a-system-design-interview-question/",
+          "done": false
+        }
+      ],
+      "total": 6
+    }
+  ]
+}

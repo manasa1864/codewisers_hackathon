@@ -1,0 +1,100 @@
+{
+  "HFT / Quant": {
+    "Jane Street": {
+      "roles": ["Quantitative Trader (OCaml)", "Software Engineer (Systems)", "Research Scientist"],
+      "importance": {"dsa": "high", "cs": "medium", "system_design": "none"},
+      "sections": ["DSA", "CS Fundamentals"]
+    },
+    "Citadel Securities": {
+      "roles": ["Quantitative Researcher (Alpha Gen)", "FPGA Engineer", "Systematic Trader"],
+      "importance": {"dsa": "high", "cs": "medium", "system_design": "none"},
+      "sections": ["DSA", "CS Fundamentals"]
+    },
+    "Tower Research": {
+      "roles": ["Low-Latency C++ Engineer", "Core Infrastructure Dev", "HFT Strategy Dev"],
+      "importance": {"dsa": "high", "cs": "high", "system_design": "none"},
+      "sections": ["DSA", "CS Fundamentals"]
+    },
+    "Hudson River Trading": {
+      "roles": ["Algorithmic Developer", "Production Engineer", "Market Microstructure Researcher"],
+      "importance": {"dsa": "high", "cs": "medium", "system_design": "none"},
+      "sections": ["DSA", "CS Fundamentals"]
+    },
+    "Jump Trading": {
+      "roles": ["High-Frequency Dev", "Quantitative Researcher", "Systems Architect"],
+      "importance": {"dsa": "high", "cs": "medium", "system_design": "medium"},
+      "sections": ["DSA", "CS Fundamentals", "System Design"]
+    }
+  },
+  "Product / FAANG+": {
+    "Google": {
+      "roles": ["L3/L4 Software Engineer", "Site Reliability Engineer (SRE)", "AI Research Engineer"],
+      "importance": {"dsa": "high", "cs": "medium", "system_design": "high"},
+      "sections": ["DSA", "CS Fundamentals", "System Design"]
+    },
+    "Microsoft": {
+      "roles": ["Software Engineer (Azure/Cloud)", "Program Manager (Technical)", "Research SDE"],
+      "importance": {"dsa": "high", "cs": "medium", "system_design": "high"},
+      "sections": ["DSA", "CS Fundamentals", "System Design"]
+    },
+    "Amazon": {
+      "roles": ["SDE-I/II (AWS)", "Applied Scientist", "Product Manager (Technical)"],
+      "importance": {"dsa": "high", "cs": "medium", "system_design": "high"},
+      "sections": ["DSA", "CS Fundamentals", "System Design"]
+    },
+    "Meta": {
+      "roles": ["Software Engineer (Product)", "Production Engineer", "AR/VR Researcher"],
+      "importance": {"dsa": "high", "cs": "medium", "system_design": "high"},
+      "sections": ["DSA", "CS Fundamentals", "System Design"]
+    },
+    "Adobe": {
+      "roles": ["Computer Scientist (Creative Cloud)", "Experience Engineer", "ML Researcher"],
+      "importance": {"dsa": "medium", "cs": "medium", "system_design": "medium"},
+      "sections": ["DSA", "CS Fundamentals", "System Design"]
+    },
+    "Flipkart / Uber": {
+      "roles": ["Backend Engineer (Scalability)", "Data Engineer", "Product Analyst"],
+      "importance": {"dsa": "high", "cs": "medium", "system_design": "high"},
+      "sections": ["DSA", "CS Fundamentals", "System Design"]
+    }
+  },
+  "AI Labs & FinTech": {
+    "OpenAI / Anthropic": {
+      "roles": ["LLM Training Engineer", "AI Safety Researcher", "Prompt Engineer"],
+      "importance": {"dsa": "medium", "cs": "high", "system_design": "medium"},
+      "sections": ["DSA", "CS Fundamentals", "System Design"]
+    },
+    "Goldman Sachs": {
+      "roles": ["Strat (Quantitative Associate)", "Fullstack Dev (Marquee)", "Cloud Engineer"],
+      "importance": {"dsa": "medium", "cs": "medium", "system_design": "medium"},
+      "sections": ["DSA", "CS Fundamentals", "System Design"]
+    },
+    "Bloomberg": {
+      "roles": ["Financial Software Engineer", "Data Scientist (NLP)", "Terminal Core Dev"],
+      "importance": {"dsa": "medium", "cs": "medium", "system_design": "medium"},
+      "sections": ["DSA", "CS Fundamentals", "System Design"]
+    }
+  },
+  "Service / MNC": {
+    "TCS": {
+      "roles": ["Ninja Developer", "Digital Engineer", "Prime SDE", "Systems Engineer"],
+      "importance": {"dsa": "medium", "cs": "high", "system_design": "low"},
+      "sections": ["DSA", "CS Fundamentals", "System Design"]
+    },
+    "Infosys / Wipro": {
+      "roles": ["Specialist Programmer", "Digital Consultant", "Associate Engineer"],
+      "importance": {"dsa": "medium", "cs": "high", "system_design": "low"},
+      "sections": ["DSA", "CS Fundamentals", "System Design"]
+    },
+    "Accenture": {
+      "roles": ["Application Dev Associate", "Cloud Consultant", "Security Architect"],
+      "importance": {"dsa": "low", "cs": "high", "system_design": "low"},
+      "sections": ["CS Fundamentals", "System Design"]
+    },
+    "Cognizant / HCL": {
+      "roles": ["Software Engineer", "Systems Integration Lead", "Data Architect"],
+      "importance": {"dsa": "medium", "cs": "high", "system_design": "low"},
+      "sections": ["DSA", "CS Fundamentals", "System Design"]
+    }
+  }
+}

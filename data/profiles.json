@@ -1,0 +1,46 @@
+{
+  "manasa2006__service_mnc__infosys_wipro__associate_engineer": {
+    "profile_id": "manasa2006__service_mnc__infosys_wipro__associate_engineer",
+    "username": "manasa2006",
+    "category": "Service / MNC",
+    "company": "Infosys / Wipro",
+    "role": "Associate Engineer",
+    "sections": [
+      "DSA",
+      "CS Fundamentals",
+      "System Design"
+    ],
+    "created_at": "2026-04-03",
+    "test_completed": true,
+    "test_count": 2,
+    "scores": {
+      "dsa_score": 40.0,
+      "cs_score": 33.3,
+      "system_design_score": 33.3,
+      "level": "beginner"
+    },
+    "readiness_score": 21.32,
+    "test_history": [
+      {
+        "date": "2026-04-03",
+        "scores": {
+          "dsa_score": 80.0,
+          "cs_score": 26.7,
+          "system_design_score": 53.3,
+          "level": "intermediate"
+        },
+        "attempt": 1
+      },
+      {
+        "date": "2026-04-03",
+        "scores": {
+          "dsa_score": 40.0,
+          "cs_score": 33.3,
+          "system_design_score": 33.3,
+          "level": "beginner"
+        },
+        "attempt": 2
+      }
+    ]
+  }
+}

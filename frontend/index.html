@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>CareerForge</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root[data-theme="dark"]{
+  --bg:#0d0f12;--surface:#161920;--surface2:#1e2229;--surface3:#252b35;
+  --border:#2d3340;--border2:#3a4255;
+  --text:#e8eaf0;--muted:#8892a4;--muted2:#6b7585;
+  --accent:#f0b429;--accent2:#38bdf8;--accent3:#a78bfa;
+  --green:#22c55e;--red:#f87171;--orange:#fb923c;
+  --card-bg:#161920;--nav-bg:#0d0f12;
+}
+:root[data-theme="light"]{
+  --bg:#f5f7fa;--surface:#ffffff;--surface2:#f0f2f7;--surface3:#e8ecf4;
+  --border:#dde1ea;--border2:#c5ccd8;
+  --text:#1a1d24;--muted:#5a6378;--muted2:#8892a4;
+  --accent:#d97706;--accent2:#0284c7;--accent3:#7c3aed;
+  --green:#16a34a;--red:#dc2626;--orange:#ea580c;
+  --card-bg:#ffffff;--nav-bg:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0;transition:background-color .2s,color .2s,border-color .2s}
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+code,.mono{font-family:'JetBrains Mono',monospace}
+a{color:var(--accent2);text-decoration:none}a:hover{text-decoration:underline}
+button{cursor:pointer;font-family:'Space Grotesk',sans-serif}
+input,select{font-family:'Space Grotesk',sans-serif}
+.view{display:none;animation:fadeUp .3s ease}.view.active{display:block}
+#authView{min-height:100vh;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;gap:40px}
+#authView.active{display:flex!important}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.container{max-width:1000px;margin:0 auto;padding:0 20px 60px}
+.container-sm{max-width:640px;margin:0 auto;padding:0 20px 60px}
+nav{background:var(--nav-bg);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{font-weight:700;font-size:18px;letter-spacing:-.5px}
+.nav-logo .cf{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-user{font-size:13px;color:var(--muted);background:var(--surface2);padding:4px 12px;border-radius:20px}
+.theme-btn{background:var(--surface2);border:1px solid var(--border);padding:5px 10px;border-radius:6px;font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.3px}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn-logout{background:none;border:1px solid var(--border);color:var(--muted);padding:5px 12px;border-radius:6px;font-size:12px}
+.btn-logout:hover{border-color:var(--red);color:var(--red)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;border:none;cursor:pointer;transition:all .2s}
+.btn-primary{background:var(--accent);color:#000}.btn-primary:hover{opacity:.9;transform:translateY(-1px)}
+.btn-secondary{background:var(--surface2);border:1px solid var(--border);color:var(--text)}.btn-secondary:hover{border-color:var(--accent2);color:var(--accent2)}
+.btn-ghost{background:none;border:1px solid var(--border);color:var(--muted)}.btn-ghost:hover{border-color:var(--border2);color:var(--text)}
+.btn-sm{padding:6px 14px;font-size:12px}
+.btn-block{width:100%;justify-content:center}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none!important}
+.card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:20px}
+.field{margin-bottom:14px}
+label{display:block;font-size:11px;font-weight:600;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px}
+input[type=text],input[type=password],select{width:100%;background:var(--surface2);border:1.5px solid var(--border);border-radius:8px;padding:10px 14px;color:var(--text);font-size:14px;outline:none}
+input:focus,select:focus{border-color:var(--accent)}
+select option{background:var(--surface2)}
+select:disabled{opacity:.4;cursor:not-allowed}
+.msg-error{background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.25);color:var(--red);padding:10px 14px;border-radius:8px;font-size:13px;margin-top:8px}
+.msg-ok{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);color:var(--green);padding:10px 14px;border-radius:8px;font-size:13px;margin-top:8px}
+.progress-bar{height:6px;background:var(--surface3);border-radius:3px;overflow:hidden;margin-top:6px}
+.progress-fill{height:100%;border-radius:3px;transition:width .6s ease}
+.fill-dsa{background:var(--accent)}.fill-cs{background:var(--accent2)}.fill-sd{background:var(--accent3)}.fill-green{background:var(--green)}
+.badge{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px}
+.badge-high{background:rgba(248,113,113,.15);color:var(--red)}
+.badge-medium{background:rgba(251,146,60,.15);color:var(--orange)}
+.badge-low{background:rgba(34,197,94,.15);color:var(--green)}
+.badge-accent{background:rgba(240,180,41,.12);color:var(--accent)}
+.badge-blue{background:rgba(56,189,248,.12);color:var(--accent2)}
+.badge-purple{background:rgba(167,139,250,.12);color:var(--accent3)}
+
+/* AUTH */
+.auth-brand{text-align:center}
+.auth-brand h1{font-size:48px;font-weight:700;letter-spacing:-2px}
+.auth-brand h1 .cf{color:var(--accent)}
+.auth-brand p{color:var(--muted);font-size:14px;margin-top:8px}
+.auth-card{width:100%;max-width:400px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px}
+.auth-tabs{display:flex;background:var(--surface2);border-radius:8px;overflow:hidden;margin-bottom:24px;padding:3px;gap:3px}
+.auth-tab{flex:1;padding:8px;text-align:center;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;color:var(--muted);border:none;background:none}
+.auth-tab.active{background:var(--accent);color:#000}
+
+/* PROFILES */
+.page-header{padding:32px 0 24px;display:flex;align-items:center;justify-content:space-between}
+.page-header h2{font-size:24px;font-weight:700}
+.profile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.profile-card{background:var(--surface);border:1.5px solid var(--border);border-radius:12px;padding:18px;cursor:pointer;transition:all .2s}
+.profile-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.profile-card .pc-cat{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--accent);margin-bottom:4px}
+.profile-card .pc-company{font-size:16px;font-weight:700;margin-bottom:2px}
+.profile-card .pc-role{font-size:12px;color:var(--muted)}
+.profile-card .pc-meta{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
+.profile-card .pc-score{font-size:22px;font-weight:700;color:var(--accent)}
+.new-profile-card{border-style:dashed;display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:600;color:var(--muted);min-height:100px}
+.new-profile-card:hover{color:var(--accent)}
+
+/* CREATE PROFILE */
+.steps-bar{display:flex;align-items:center;gap:4px;margin-bottom:28px}
+.step-circle{width:32px;height:32px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin:0 auto 4px;transition:all .3s}
+.step-circle.active{border-color:var(--accent);background:var(--accent);color:#000}
+.step-circle.done{border-color:var(--green);background:var(--green);color:#000}
+.step-label{font-size:11px;color:var(--muted)}
+.step-line{flex:1;height:2px;background:var(--border);border-radius:1px}
+.step-line.done{background:var(--green)}
+.selection-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.sel-option{background:var(--surface2);border:1.5px solid var(--border);border-radius:10px;padding:14px 16px;cursor:pointer;transition:all .2s;font-size:13px;font-weight:500}
+.sel-option:hover{border-color:var(--accent2)}
+.sel-option.selected{border-color:var(--accent);background:rgba(240,180,41,.08)}
+.sel-option .so-title{font-weight:700;margin-bottom:4px}
+.sel-option .so-sub{font-size:11px;color:var(--muted)}
+
+/* TEST GUIDELINES */
+.guideline-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+@media(max-width:600px){.guideline-grid{grid-template-columns:1fr}}
+.guideline-item{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:16px}
+.guideline-label{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;background:var(--surface3);color:var(--muted);margin-bottom:8px}
+.guideline-item h4{font-size:14px;font-weight:700;margin-bottom:4px}
+.guideline-item p{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* TEST VIEW */
+.test-header{padding:16px 0;border-bottom:1px solid var(--border);margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.timer-box{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;padding:6px 14px;border-radius:8px;border:2px solid var(--border);color:var(--text)}
+.timer-box.urgent{border-color:var(--orange);color:var(--orange)}
+.timer-box.critical{border-color:var(--red);color:var(--red);animation:pulse .8s ease infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.section-tabs{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
+.sec-tab{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;border:1.5px solid var(--border);color:var(--muted);background:none;cursor:pointer;transition:all .2s}
+.sec-tab.active{border-color:var(--accent);color:var(--accent);background:rgba(240,180,41,.08)}
+.sec-tab.done-tab{border-color:var(--green);color:var(--green)}
+.question-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px}
+.q-number{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.q-text{font-size:15px;line-height:1.6;margin-bottom:18px;font-weight:500}
+.options-grid{display:grid;gap:8px}
+.option-btn{background:var(--surface2);border:1.5px solid var(--border);border-radius:8px;padding:12px 16px;text-align:left;font-size:13px;color:var(--text);cursor:pointer;width:100%;transition:all .2s}
+.option-btn:hover{border-color:var(--accent2)}
+.option-btn.selected{border-color:var(--accent);background:rgba(240,180,41,.08);color:var(--accent)}
+.q-nav{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px}
+.q-dot{width:28px;height:28px;border-radius:6px;border:1.5px solid var(--border);font-size:11px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;background:none;color:var(--muted)}
+.q-dot.answered{border-color:var(--accent2);background:rgba(56,189,248,.1);color:var(--accent2)}
+.q-dot.current{border-color:var(--accent);background:var(--accent);color:#000}
+
+/* TEST RESULTS */
+.results-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin:20px 0}
+.result-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.result-card .rc-score{font-size:34px;font-weight:700;font-family:'JetBrains Mono',monospace}
+.result-card .rc-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+
+/* REVIEW */
+.review-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:8px;border-left:3px solid var(--border)}
+.review-item.wrong{border-left-color:var(--red)}
+.review-item.correct{border-left-color:var(--green)}
+.review-q{font-size:13px;line-height:1.5;margin-bottom:10px;color:var(--text)}
+.review-answers{display:flex;flex-direction:column;gap:6px}
+.review-ans{font-size:12px;padding:6px 10px;border-radius:6px;display:flex;align-items:center;gap:6px}
+.review-ans.given-wrong{background:rgba(248,113,113,.1);color:var(--red)}
+.review-ans.given-correct{background:rgba(34,197,94,.1);color:var(--green)}
+.review-ans.correct-ans{background:rgba(34,197,94,.1);color:var(--green)}
+.review-tag{font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px;background:rgba(255,255,255,.1)}
+.review-section-header{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin:16px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+
+/* DASHBOARD */
+.dash-header{padding:24px 0 20px}
+.readiness-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:18px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.readiness-ring{position:relative;width:88px;height:88px;flex-shrink:0}
+.readiness-ring svg{transform:rotate(-90deg)}
+.readiness-ring .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:700}
+.readiness-info{flex:1}
+.readiness-info h3{font-size:16px;font-weight:700;margin-bottom:4px}
+.readiness-info p{font-size:12px;color:var(--muted);line-height:1.5}
+.scores-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+.score-mini{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px}
+.score-mini .sm-val{font-size:24px;font-weight:700;font-family:'JetBrains Mono',monospace}
+.score-mini .sm-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px}
+.score-mini .sm-target{font-size:11px;color:var(--muted2);margin-top:4px}
+@media(max-width:500px){.scores-row{grid-template-columns:1fr}}
+.section-cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:18px}
+.section-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px;cursor:pointer;transition:all .2s}
+.section-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.section-card h3{font-size:15px;font-weight:700;margin-bottom:4px}
+.section-card p{font-size:12px;color:var(--muted);margin-bottom:12px}
+.section-card .sc-footer{display:flex;align-items:center;justify-content:space-between;margin-top:10px}
+.section-card .sc-pct{font-size:20px;font-weight:700;font-family:'JetBrains Mono',monospace}
+
+/* SECTION DETAIL */
+.section-header{padding:20px 0 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.back-btn{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:7px 12px;font-size:13px;color:var(--muted);display:flex;align-items:center;gap:5px}
+.back-btn:hover{color:var(--text);border-color:var(--border2)}
+.overall-progress-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:18px}
+.opb-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.opb-counts{display:flex;gap:16px;font-size:12px}
+.opb-count{display:flex;align-items:center;gap:5px}
+.opb-dot{width:8px;height:8px;border-radius:50%}
+.topic-list{display:flex;flex-direction:column;gap:8px}
+.topic-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.topic-header{padding:14px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:background .2s}
+.topic-header:hover{background:var(--surface2)}
+.topic-arrow{font-size:12px;color:var(--muted);margin-left:auto;transition:transform .2s}
+.topic-item.expanded .topic-arrow{transform:rotate(90deg)}
+.topic-title{font-size:14px;font-weight:600;flex:1}
+.topic-progress-info{display:flex;align-items:center;gap:8px}
+.topic-pct{font-size:12px;font-family:'JetBrains Mono',monospace;color:var(--muted)}
+.topic-mini-bar{width:80px;height:4px;background:var(--surface3);border-radius:2px;overflow:hidden}
+.topic-mini-fill{height:100%;border-radius:2px;background:var(--accent);transition:width .4s}
+.problem-list{border-top:1px solid var(--border)}
+.problem-item{padding:10px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border);transition:background .15s}
+.problem-item:last-child{border-bottom:none}
+.problem-item:hover{background:var(--surface2)}
+.prob-check{width:20px;height:20px;border:2px solid var(--border);border-radius:5px;flex-shrink:0;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;font-size:11px}
+.prob-check.done{background:var(--green);border-color:var(--green);color:#000}
+.prob-name{flex:1;font-size:13px}
+.prob-links{display:flex;gap:6px;flex-shrink:0}
+.prob-link{font-size:11px;padding:2px 8px;border-radius:10px;font-weight:600;text-decoration:none}
+.prob-link.lc{background:rgba(240,180,41,.1);color:var(--accent);border:1px solid rgba(240,180,41,.2)}
+.prob-link.blog{background:rgba(56,189,248,.1);color:var(--accent2);border:1px solid rgba(56,189,248,.2)}
+.prob-link:hover{opacity:.8}
+
+/* READINESS VIEW */
+.gap-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:15px;margin-bottom:8px;border-left:3px solid var(--border)}
+.gap-card.sev-High{border-left-color:var(--red)}
+.gap-card.sev-Medium{border-left-color:var(--orange)}
+.gap-card.sev-Low{border-left-color:var(--green)}
+.gap-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.gap-name{font-size:13px;font-weight:600}
+.gap-vals{display:flex;gap:14px;font-size:12px;color:var(--muted)}
+.gap-explain{font-size:11px;color:var(--muted2);margin-top:6px;line-height:1.5}
+.action-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:8px;display:flex;gap:10px}
+.ac-check{width:20px;height:20px;border:2px solid var(--border);border-radius:5px;flex-shrink:0;margin-top:2px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:font-size:10px}
+.ac-check.done{background:var(--accent);border-color:var(--accent);color:#000}
+.ac-body{flex:1}
+.ac-task{font-size:13px;line-height:1.5;margin-bottom:4px}
+.ac-why{font-size:11px;color:var(--muted)}
+.ac-resource{display:inline-block;margin-top:5px;font-size:10px;padding:2px 8px;border-radius:10px;background:rgba(167,139,250,.1);color:var(--accent3);border:1px solid rgba(167,139,250,.2)}
+
+/* MISC */
+.section-divider{margin:24px 0;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;display:flex;align-items:center;gap:10px}
+.section-divider::before,.section-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.empty-state{text-align:center;padding:48px 20px;color:var(--muted)}
+.empty-state h3{font-size:16px;font-weight:700;margin-bottom:6px;color:var(--text)}
+.loading-overlay{position:fixed;inset:0;background:rgba(13,15,18,.7);z-index:9999;display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;backdrop-filter:blur(4px)}
+.loading-overlay.show{display:flex}
+.spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <div class="loading-text" id="loadingText">Loading...</div>
+</div>
+
+<!-- AUTH -->
+<div id="authView" class="view active">
+  <div class="auth-brand">
+    <h1>Career<span class="cf">Forge</span></h1>
+    <p>Deterministic Career Intelligence — built to get you hired.</p>
+  </div>
+  <div class="auth-card">
+    <div class="auth-tabs">
+      <button class="auth-tab active" onclick="switchAuthTab('login')">Login</button>
+      <button class="auth-tab" onclick="switchAuthTab('signup')">Sign Up</button>
+    </div>
+    <div id="loginForm">
+      <div class="field"><label>Username</label><input id="li_user" type="text" placeholder="username"/></div>
+      <div class="field"><label>Password</label><input id="li_pass" type="password" placeholder="password"/></div>
+      <div id="li_msg"></div>
+      <button class="btn btn-primary btn-block" style="margin-top:12px" onclick="doLogin()">Login</button>
+    </div>
+    <div id="signupForm" style="display:none">
+      <div class="field"><label>Username</label><input id="su_user" type="text" placeholder="choose a username"/></div>
+      <div class="field"><label>Password</label><input id="su_pass" type="password" placeholder="min 6 characters"/></div>
+      <div id="su_msg"></div>
+      <button class="btn btn-primary btn-block" style="margin-top:12px" onclick="doSignup()">Create Account</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav" style="display:none">
+  <div class="nav-logo">Career<span class="cf">Forge</span></div>
+  <div class="nav-right">
+    <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">Light</button>
+    <span class="nav-user" id="navUser">user</span>
+    <button class="btn-logout" onclick="doLogout()">Logout</button>
+  </div>
+</nav>
+
+<!-- PROFILES -->
+<div id="profilesView" class="view">
+<div class="container">
+  <div class="page-header">
+    <div>
+      <h2>My Profiles</h2>
+      <p style="font-size:13px;color:var(--muted);margin-top:2px">Each profile targets a specific company and role</p>
+    </div>
+    <button class="btn btn-primary" onclick="showView('createProfileView');initCreateProfile()">+ New Profile</button>
+  </div>
+  <div class="profile-grid" id="profileGrid">
+    <div style="color:var(--muted);font-size:13px">Loading...</div>
+  </div>
+</div>
+</div>
+
+<!-- CREATE PROFILE -->
+<div id="createProfileView" class="view">
+<div class="container-sm">
+  <div style="padding:24px 0 20px">
+    <button class="btn btn-ghost btn-sm" onclick="showView('profilesView')">Back</button>
+    <h2 style="font-size:20px;font-weight:700;margin-top:12px">Create New Profile</h2>
+    <p style="font-size:13px;color:var(--muted);margin-top:4px">Select your target category, company, and role</p>
+  </div>
+  <div class="steps-bar">
+    <div style="text-align:center;flex:none"><div class="step-circle" id="sc1">1</div><div class="step-label">Category</div></div>
+    <div class="step-line" id="sl1"></div>
+    <div style="text-align:center;flex:none"><div class="step-circle" id="sc2">2</div><div class="step-label">Company</div></div>
+    <div class="step-line" id="sl2"></div>
+    <div style="text-align:center;flex:none"><div class="step-circle" id="sc3">3</div><div class="step-label">Role</div></div>
+  </div>
+  <div id="cpStep1"><div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:12px">Select Category</div><div class="selection-grid" id="categoryGrid"></div></div>
+  <div id="cpStep2" style="display:none"><button class="btn btn-ghost btn-sm" style="margin-bottom:16px" onclick="backToStep(1)">Back</button><div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:12px">Select Company</div><div class="selection-grid" id="companyGrid"></div></div>
+  <div id="cpStep3" style="display:none"><button class="btn btn-ghost btn-sm" style="margin-bottom:16px" onclick="backToStep(2)">Back</button><div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:12px">Select Role</div><div class="selection-grid" id="roleGrid"></div><div style="margin-top:20px"><button class="btn btn-primary btn-block" onclick="confirmCreateProfile()">Create Profile and Start Test</button></div></div>
+</div>
+</div>
+
+<!-- TEST GUIDELINES -->
+<div id="testGuidelinesView" class="view">
+<div class="container-sm">
+  <div style="padding:24px 0 20px">
+    <h2 style="font-size:20px;font-weight:700" id="gl_title">Initial Assessment</h2>
+    <p style="font-size:13px;color:var(--muted);margin-top:4px" id="gl_subtitle"></p>
+  </div>
+  <div class="card" style="margin-bottom:16px">
+    <div id="gl_sections" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px"></div>
+    <p style="font-size:13px;color:var(--muted);line-height:1.7">Questions are selected <strong style="color:var(--text)">deterministically</strong> based on your target company's focus areas. The timer starts when you begin — answer all questions before it expires.</p>
+  </div>
+  <div class="guideline-grid">
+    <div class="guideline-item"><div class="guideline-label">Difficulty</div><h4>Adaptive Selection</h4><p>Questions match your target company's focus. High importance = harder questions.</p></div>
+    <div class="guideline-item"><div class="guideline-label">Format</div><h4>15 Questions / Section</h4><p>Multiple choice covering output prediction, complexity analysis, and concepts.</p></div>
+    <div class="guideline-item"><div class="guideline-label">Timer</div><h4>1 Minute Per Question</h4><p>Timer auto-submits when it expires. Answered questions are saved.</p></div>
+    <div class="guideline-item"><div class="guideline-label">Result</div><h4>Builds Your Learning Path</h4><p>Scores determine adaptive difficulty and recommended practice volume.</p></div>
+  </div>
+  <button class="btn btn-primary btn-block" onclick="startTest()">Begin Assessment</button>
+</div>
+</div>
+
+<!-- TEST -->
+<div id="testView" class="view">
+<div class="container">
+  <div class="test-header">
+    <div>
+      <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px" id="testSectionLabel">Section</div>
+      <div style="font-size:16px;font-weight:700" id="testProgressLabel">Question 1 of 15</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div id="testAnsweredCount" style="font-size:12px;color:var(--muted)">0 answered</div>
+      <div class="timer-box" id="timerBox">30:00</div>
+      <button class="btn btn-primary btn-sm" onclick="submitTest()" id="submitTestBtn">Submit Test</button>
+    </div>
+  </div>
+  <div class="section-tabs" id="sectionTabs"></div>
+  <div class="question-card" id="questionCard">
+    <div class="q-number" id="qNum">Q1</div>
+    <div class="q-text" id="qText"></div>
+    <div class="options-grid" id="qOptions"></div>
+    <div style="display:flex;justify-content:space-between;margin-top:16px">
+      <button class="btn btn-ghost btn-sm" onclick="prevQ()" id="prevQBtn">Prev</button>
+      <button class="btn btn-secondary btn-sm" onclick="nextQ()" id="nextQBtn">Next</button>
+    </div>
+  </div>
+  <div style="margin-top:12px">
+    <div style="font-size:11px;color:var(--muted);margin-bottom:6px">Navigator</div>
+    <div class="q-nav" id="qNav"></div>
+  </div>
+</div>
+</div>
+
+<!-- TEST RESULTS -->
+<div id="testResultsView" class="view">
+<div class="container-sm">
+  <div style="padding:24px 0 20px;text-align:center">
+    <h2 style="font-size:22px;font-weight:700">Assessment Complete</h2>
+    <p style="font-size:13px;color:var(--muted);margin-top:4px" id="tr_level"></p>
+  </div>
+  <div class="results-grid" id="tr_scores"></div>
+  <div class="card" style="margin-bottom:16px">
+    <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:12px">Adaptive Learning Plan</div>
+    <div id="tr_adaptive" style="display:flex;flex-direction:column;gap:8px"></div>
+  </div>
+  <div style="margin-bottom:16px">
+    <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:12px">Question Review — Wrong Answers</div>
+    <div id="tr_review"></div>
+  </div>
+  <button class="btn btn-primary btn-block" onclick="goToDashboard()">Go to Dashboard</button>
+</div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboardView" class="view">
+<div class="container">
+  <div class="dash-header">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <div>
+        <div style="font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.6px" id="dash_cat"></div>
+        <h2 style="font-size:20px;font-weight:700" id="dash_company"></h2>
+        <p id="dash_role" style="color:var(--muted);font-size:13px;margin-top:2px"></p>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-ghost btn-sm" onclick="showView('profilesView')">Profiles</button>
+        <button class="btn btn-secondary btn-sm" onclick="showReadiness()">Readiness Analysis</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="readiness-card" id="readinessCard">
+    <div class="readiness-ring">
+      <svg viewBox="0 0 88 88" width="88" height="88">
+        <circle cx="44" cy="44" r="38" fill="none" stroke="var(--border)" stroke-width="6"/>
+        <circle id="readinessArc" cx="44" cy="44" r="38" fill="none" stroke="var(--accent)" stroke-width="6" stroke-linecap="round" stroke-dasharray="238.76" stroke-dashoffset="238.76"/>
+      </svg>
+      <div class="num"><span id="readinessNum" style="color:var(--accent)">0</span><span style="font-size:10px;color:var(--muted)">/100</span></div>
+    </div>
+    <div class="readiness-info">
+      <h3>Overall Readiness</h3>
+      <p id="readinessFormula">Score = 0.6 x test + 0.4 x completion</p>
+      <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap" id="readinessBadges"></div>
+    </div>
+  </div>
+
+  <div class="scores-row" id="scoresRow"></div>
+  <div class="section-divider">Preparation Sections</div>
+  <div class="section-cards-grid" id="sectionCardsGrid"></div>
+</div>
+</div>
+
+<!-- SECTION DETAIL -->
+<div id="sectionDetailView" class="view">
+<div class="container">
+  <div class="section-header">
+    <button class="back-btn" onclick="backToDashboard()">Back to Dashboard</button>
+    <div>
+      <h2 style="font-size:18px;font-weight:700" id="sd_title"></h2>
+      <p style="font-size:12px;color:var(--muted)" id="sd_subtitle"></p>
+    </div>
+  </div>
+  <div class="overall-progress-box">
+    <div class="opb-top">
+      <div>
+        <div style="font-size:22px;font-weight:700;font-family:'JetBrains Mono',monospace" id="sd_pct">0%</div>
+        <div style="font-size:12px;color:var(--muted)">Overall Progress</div>
+      </div>
+      <div class="opb-counts" id="sd_counts"></div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="sd_bar" style="width:0%"></div></div>
+  </div>
+  <div class="topic-list" id="topicList"></div>
+</div>
+</div>
+
+<!-- READINESS -->
+<div id="readinessView" class="view">
+<div class="container">
+  <div style="padding:24px 0 16px;display:flex;align-items:center;justify-content:space-between">
+    <div>
+      <h2 style="font-size:20px;font-weight:700">Readiness Analysis</h2>
+      <p style="font-size:13px;color:var(--muted);margin-top:2px" id="rv_subtitle"></p>
+    </div>
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-ghost btn-sm" onclick="backToDashboard()">Dashboard</button>
+      <button class="btn btn-secondary btn-sm" onclick="startPeriodicTest()">Take New Test</button>
+    </div>
+  </div>
+  <div class="card" style="margin-bottom:16px;background:linear-gradient(135deg,rgba(240,180,41,.06),rgba(56,189,248,.06))">
+    <div style="font-size:13px;line-height:1.7;color:var(--muted)" id="rv_explanation"></div>
+  </div>
+  <div class="scores-row" style="margin-bottom:18px" id="rv_scores"></div>
+  <div class="section-divider">Gap Analysis</div>
+  <div id="rv_gaps"></div>
+  <div class="section-divider">Action Plan</div>
+  <div id="rv_plan"></div>
+</div>
+</div>
+
+<script>
+const API = '';
+let token    = localStorage.getItem('cf_token') || null;
+let username = localStorage.getItem('cf_user')  || null;
+let companyMap     = null;
+let currentProfile = null;
+let testData       = {};
+let testAnswers    = {};
+let currentSection = null;
+let currentQIdx    = 0;
+let tasksDone      = new Set();
+let currentSectionName = '';
+let currentSectionData = [];
+let currentTestRound   = 0;
+let timerInterval      = null;
+let timerSeconds       = 0;
+let dashboardData      = null;
+
+// ─── VIEWS ───────────────────────────────────────────────────────
+function showView(id){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+function showNav(show){ document.getElementById('mainNav').style.display=show?'flex':'none'; }
+
+// ─── THEME ───────────────────────────────────────────────────────
+let darkMode = localStorage.getItem('cf_theme') !== 'light';
+function applyTheme(){
+  document.documentElement.setAttribute('data-theme', darkMode?'dark':'light');
+  document.getElementById('themeBtn').textContent = darkMode ? 'Light' : 'Dark';
+  localStorage.setItem('cf_theme', darkMode?'dark':'light');
+}
+function toggleTheme(){ darkMode=!darkMode; applyTheme(); }
+applyTheme();
+
+// ─── LOADING ─────────────────────────────────────────────────────
+function setLoading(show, msg='Loading...'){
+  document.getElementById('loadingText').textContent = msg;
+  document.getElementById('loadingOverlay').classList.toggle('show', show);
+}
+
+// ─── API ─────────────────────────────────────────────────────────
+async function api(method, path, data=null){
+  const opts = {
+    method,
+    headers: { 'Content-Type':'application/json', ...(token?{'Authorization':'Bearer '+token}:{}) }
+  };
+  if(data) opts.body = JSON.stringify(data);
+  const r = await fetch(API+path, opts);
+  const j = await r.json();
+  if(!r.ok) throw new Error(j.detail || 'Request failed');
+  return j;
+}
+function setMsg(id, msg, isErr=true){
+  document.getElementById(id).innerHTML = `<div class="${isErr?'msg-error':'msg-ok'}">${msg}</div>`;
+}
+
+// ─── AUTH ─────────────────────────────────────────────────────────
+function switchAuthTab(tab){
+  document.querySelectorAll('.auth-tab').forEach((t,i)=>
+    t.classList.toggle('active',(i===0&&tab==='login')||(i===1&&tab==='signup')));
+  document.getElementById('loginForm').style.display  = tab==='login'  ? '' : 'none';
+  document.getElementById('signupForm').style.display = tab==='signup' ? '' : 'none';
+}
+
+async function doLogin(){
+  const u = document.getElementById('li_user').value.trim();
+  const p = document.getElementById('li_pass').value;
+  if(!u||!p){ setMsg('li_msg','Fill all fields.'); return; }
+  try{
+    const r = await api('POST','/login',{username:u,password:p});
+    token=r.token; username=r.username;
+    localStorage.setItem('cf_token',token); localStorage.setItem('cf_user',username);
+    await afterLogin();
+  }catch(e){ setMsg('li_msg',e.message); }
+}
+
+async function doSignup(){
+  const u = document.getElementById('su_user').value.trim();
+  const p = document.getElementById('su_pass').value;
+  if(!u||!p){ setMsg('su_msg','Fill all fields.'); return; }
+  if(p.length<6){ setMsg('su_msg','Password needs 6+ characters.'); return; }
+  try{
+    await api('POST','/signup',{username:u,password:p});
+    setMsg('su_msg','Account created! Logging in...', false);
+    document.getElementById('li_user').value=u;
+    document.getElementById('li_pass').value=p;
+    setTimeout(()=>{ switchAuthTab('login'); doLogin(); }, 700);
+  }catch(e){ setMsg('su_msg',e.message); }
+}
+
+async function doLogout(){
+  stopTimer();
+  if(token) await api('POST','/logout').catch(()=>{});
+  token=null; username=null;
+  localStorage.removeItem('cf_token'); localStorage.removeItem('cf_user');
+  showNav(false); showView('authView');
+}
+
+async function afterLogin(){
+  document.getElementById('navUser').textContent = username;
+  showNav(true);
+  await loadCompanyMap();
+  await loadProfiles();
+}
+
+// ─── COMPANY MAP ──────────────────────────────────────────────────
+async function loadCompanyMap(){
+  if(!companyMap) companyMap = await api('GET','/company-map');
+}
+
+// ─── PROFILES ─────────────────────────────────────────────────────
+async function loadProfiles(){
+  showView('profilesView');
+  try{
+    const r = await api('GET','/profiles');
+    renderProfiles(r.profiles);
+  }catch(e){
+    document.getElementById('profileGrid').innerHTML=`<div class="msg-error">${e.message}</div>`;
+  }
+}
+
+function renderProfiles(profiles){
+  const grid = document.getElementById('profileGrid');
+  let html = '';
+  profiles.forEach(p=>{
+    const score = p.readiness_score||0;
+    const color = score>=70?'var(--green)':score>=50?'var(--accent)':'var(--red)';
+    const status = p.test_completed?`<span class="badge badge-accent">Active</span>`:`<span class="badge badge-medium">Pending Test</span>`;
+    html += `<div class="profile-card" onclick="openProfile('${p.profile_id}')">
+      <div class="pc-cat">${p.category}</div>
+      <div class="pc-company">${p.company}</div>
+      <div class="pc-role">${p.role}</div>
+      <div class="pc-meta">
+        <div><div class="pc-score" style="color:${color}">${score.toFixed(0)}<span style="font-size:12px;color:var(--muted)">/100</span></div>
+        <div style="font-size:11px;color:var(--muted)">${p.scores?.level||'Not tested'}</div></div>
+        <div style="text-align:right">${status}<div style="font-size:10px;color:var(--muted2);margin-top:4px">${p.created_at}</div></div>
+      </div>
+    </div>`;
+  });
+  html += `<div class="profile-card new-profile-card" onclick="showView('createProfileView');initCreateProfile()">+ New Profile</div>`;
+  grid.innerHTML = html;
+}
+
+async function openProfile(profileId){
+  setLoading(true,'Loading profile...');
+  try{
+    const r = await api('GET',`/profiles/${profileId}`);
+    currentProfile = r.profile;
+    if(!currentProfile.test_completed){
+      currentTestRound = 0;
+      loadGuidelinesView('Initial Assessment', false);
+    } else {
+      await loadDashboard(profileId);
+    }
+  }catch(e){ alert(e.message); }
+  finally{ setLoading(false); }
+}
+
+// ─── CREATE PROFILE ───────────────────────────────────────────────
+let selCategory=null, selCompany=null, selRole=null;
+
+async function initCreateProfile(){
+  selCategory=null; selCompany=null; selRole=null;
+  await loadCompanyMap();
+  showCpStep(1);
+  renderCategories();
+}
+
+function showCpStep(n){
+  [1,2,3].forEach(i=>{
+    document.getElementById('cpStep'+i).style.display = i===n?'block':'none';
+    const sc = document.getElementById('sc'+i);
+    sc.classList.toggle('active',i===n);
+    sc.classList.toggle('done',i<n);
+    sc.textContent = i<n ? 'v' : i;
+    if(i<3) document.getElementById('sl'+i).classList.toggle('done',i<n);
+  });
+}
+
+function backToStep(n){ showCpStep(n); }
+
+function renderCategories(){
+  document.getElementById('categoryGrid').innerHTML = Object.keys(companyMap).map(cat=>`
+    <div class="sel-option ${selCategory===cat?'selected':''}" onclick="selectCategory('${cat.replace(/'/g,"\\'")}')">
+      <div class="so-title">${cat}</div>
+      <div class="so-sub">${Object.keys(companyMap[cat]).length} companies</div>
+    </div>`).join('');
+}
+
+function selectCategory(cat){ selCategory=cat; selCompany=null; selRole=null; renderCategories(); renderCompanies(); showCpStep(2); }
+
+function renderCompanies(){
+  document.getElementById('companyGrid').innerHTML = Object.entries(companyMap[selCategory]).map(([co,info])=>`
+    <div class="sel-option ${selCompany===co?'selected':''}" onclick="selectCompany('${co.replace(/'/g,"\\'")}')">
+      <div class="so-title">${co}</div>
+      <div class="so-sub">${info.sections.join(' / ')}</div>
+    </div>`).join('');
+}
+
+function selectCompany(co){ selCompany=co; selRole=null; renderCompanies(); renderRoles(); showCpStep(3); }
+
+function renderRoles(){
+  document.getElementById('roleGrid').innerHTML = companyMap[selCategory][selCompany].roles.map(r=>`
+    <div class="sel-option ${selRole===r?'selected':''}" onclick="selectRole('${r.replace(/'/g,"\\'")}')">
+      <div class="so-title" style="font-size:13px">${r}</div>
+    </div>`).join('');
+}
+
+function selectRole(r){ selRole=r; renderRoles(); }
+
+async function confirmCreateProfile(){
+  if(!selCategory||!selCompany||!selRole){ alert('Please complete all selections.'); return; }
+  setLoading(true,'Creating profile...');
+  try{
+    const r = await api('POST','/profiles',{category:selCategory,company:selCompany,role:selRole});
+    currentProfile = r.profile;
+    currentTestRound = 0;
+    loadGuidelinesView('Initial Assessment', false);
+  }catch(e){ alert(e.message); }
+  finally{ setLoading(false); }
+}
+
+// ─── GUIDELINES ───────────────────────────────────────────────────
+function loadGuidelinesView(title, isPeriodic){
+  const p = currentProfile;
+  document.getElementById('gl_title').textContent = title;
+  document.getElementById('gl_subtitle').textContent = `${p.company}  |  ${p.role}`;
+  document.getElementById('gl_sections').innerHTML = p.sections.map(s=>{
+    const col = s==='DSA'?'badge-accent':s==='System Design'?'badge-purple':'badge-blue';
+    return `<span class="badge ${col}">${s}</span>`;
+  }).join('');
+  showView('testGuidelinesView');
+}
+
+function startPeriodicTest(){
+  currentTestRound = (currentProfile.test_history||[]).length;
+  loadGuidelinesView('Periodic Assessment', true);
+}
+
+// ─── TIMER ────────────────────────────────────────────────────────
+function startTimer(totalSeconds){
+  timerSeconds = totalSeconds;
+  updateTimerDisplay();
+  timerInterval = setInterval(()=>{
+    timerSeconds--;
+    updateTimerDisplay();
+    if(timerSeconds <= 0){
+      stopTimer();
+      autoSubmitTest();
+    }
+  }, 1000);
+}
+
+function stopTimer(){
+  if(timerInterval){ clearInterval(timerInterval); timerInterval=null; }
+}
+
+function updateTimerDisplay(){
+  const box = document.getElementById('timerBox');
+  if(!box) return;
+  const m = Math.floor(timerSeconds/60);
+  const s = timerSeconds % 60;
+  box.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+  box.className = 'timer-box';
+  if(timerSeconds <= 60)      box.classList.add('critical');
+  else if(timerSeconds <= 180) box.classList.add('urgent');
+}
+
+async function autoSubmitTest(){
+  const total = Object.values(testData).reduce((a,s)=>a+s.length,0);
+  const answered = Object.keys(testAnswers).length;
+  // Fill unanswered with empty string
+  for(const qs of Object.values(testData)){
+    for(const q of qs){
+      if(!testAnswers[String(q.id)]) testAnswers[String(q.id)] = '';
+    }
+  }
+  await doSubmitTest();
+}
+
+// ─── TEST ─────────────────────────────────────────────────────────
+async function startTest(){
+  if(!currentProfile) return;
+  setLoading(true,'Selecting questions...');
+  try{
+    const r = await api('GET',`/test/${currentProfile.profile_id}/questions?round=${currentTestRound}`);
+    testData = r.questions;
+    testAnswers = {};
+    const sections = Object.keys(testData);
+    if(!sections.length){ alert('No questions found.'); return; }
+    currentSection = sections[0];
+    currentQIdx = 0;
+    renderTestSectionTabs(sections);
+    renderQuestion();
+
+    // Timer: 1 minute per question
+    const totalQs = Object.values(testData).reduce((a,s)=>a+s.length,0);
+    startTimer(totalQs * 60);
+
+    showView('testView');
+  }catch(e){ alert(e.message); }
+  finally{ setLoading(false); }
+}
+
+function renderTestSectionTabs(sections){
+  document.getElementById('sectionTabs').innerHTML = sections.map(s=>`
+    <button class="sec-tab ${s===currentSection?'active':''}" id="tab_${s.replace(/ /g,'_')}"
+      onclick="switchTestSection('${s.replace(/'/g,"\\'")}')">
+      ${s}
+    </button>`).join('');
+}
+
+function switchTestSection(sec){
+  currentSection=sec; currentQIdx=0;
+  document.querySelectorAll('.sec-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab_'+sec.replace(/ /g,'_'))?.classList.add('active');
+  renderQuestion(); updateTestNav();
+}
+
+function renderQuestion(){
+  const questions = testData[currentSection];
+  if(!questions?.length) return;
+  const q = questions[currentQIdx];
+  const total = questions.length;
+  document.getElementById('testSectionLabel').textContent = currentSection;
+  document.getElementById('testProgressLabel').textContent = `Question ${currentQIdx+1} of ${total}`;
+  document.getElementById('qNum').textContent = `Q${currentQIdx+1}`;
+  document.getElementById('qText').textContent = q.question;
+
+  const answered = Object.keys(testAnswers).length;
+  const totalQs  = Object.values(testData).reduce((a,s)=>a+s.length,0);
+  document.getElementById('testAnsweredCount').textContent = `${answered}/${totalQs} answered`;
+
+  const selected = testAnswers[String(q.id)];
+  document.getElementById('qOptions').innerHTML = q.options.map(opt=>`
+    <button class="option-btn ${selected===opt?'selected':''}"
+      onclick="selectAnswer(${q.id},'${opt.replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/"/g,'&quot;')}')">
+      ${opt}
+    </button>`).join('');
+
+  updateTestNav();
+  document.getElementById('prevQBtn').disabled = currentQIdx===0;
+  document.getElementById('nextQBtn').style.display = currentQIdx<total-1?'':'none';
+
+  // Update section tab done indicators
+  Object.keys(testData).forEach(sec=>{
+    const allDone = testData[sec].every(q2=>testAnswers[String(q2.id)]!==undefined);
+    document.getElementById('tab_'+sec.replace(/ /g,'_'))?.classList.toggle('done-tab',allDone);
+  });
+}
+
+function selectAnswer(qid, answer){
+  testAnswers[String(qid)] = answer;
+  renderQuestion();
+}
+
+function prevQ(){ if(currentQIdx>0){ currentQIdx--; renderQuestion(); } }
+
+function nextQ(){
+  const questions = testData[currentSection];
+  if(currentQIdx<questions.length-1){ currentQIdx++; renderQuestion(); }
+  else{
+    const secs = Object.keys(testData);
+    const idx  = secs.indexOf(currentSection);
+    if(idx<secs.length-1) switchTestSection(secs[idx+1]);
+  }
+}
+
+function jumpToQuestion(i){ currentQIdx=i; renderQuestion(); }
+
+function updateTestNav(){
+  const questions = testData[currentSection];
+  document.getElementById('qNav').innerHTML = questions.map((q,i)=>{
+    const answered = testAnswers[String(q.id)]!==undefined;
+    const current  = i===currentQIdx;
+    return `<button class="q-dot ${current?'current':answered?'answered':''}"
+      onclick="jumpToQuestion(${i})">${i+1}</button>`;
+  }).join('');
+}
+
+async function submitTest(){
+  const totalQs  = Object.values(testData).reduce((a,s)=>a+s.length,0);
+  const answered = Object.keys(testAnswers).length;
+  if(answered<totalQs){
+    if(!confirm(`${answered}/${totalQs} answered. Submit anyway? Unanswered questions will be marked wrong.`)) return;
+    // Fill blanks
+    for(const qs of Object.values(testData)){
+      for(const q of qs){
+        if(!testAnswers[String(q.id)]) testAnswers[String(q.id)] = '';
+      }
+    }
+  }
+  stopTimer();
+  await doSubmitTest();
+}
+
+async function doSubmitTest(){
+  setLoading(true,'Scoring your test...');
+  try{
+    const r = await api('POST',`/test/${currentProfile.profile_id}/submit`,
+      { answers: testAnswers, test_round: currentTestRound });
+    currentProfile = r.profile;
+    renderTestResults(r.result, r.adaptive);
+    showView('testResultsView');
+  }catch(e){ alert(e.message); }
+  finally{ setLoading(false); }
+}
+
+function renderTestResults(result, adaptive){
+  const level = result.level||'beginner';
+  document.getElementById('tr_level').textContent = `Level: ${level.charAt(0).toUpperCase()+level.slice(1)}`;
+
+  const scores = result.section_scores||{};
+  const colors = {'DSA':'var(--accent)','CS Fundamentals':'var(--accent2)','System Design':'var(--accent3)'};
+  document.getElementById('tr_scores').innerHTML = Object.entries(scores).map(([sec,score])=>`
+    <div class="result-card">
+      <div class="rc-score" style="color:${colors[sec]||'var(--accent)'}">${score.toFixed(0)}</div>
+      <div class="rc-label">${sec}</div>
+      <div class="progress-bar" style="margin-top:8px">
+        <div class="progress-fill" style="width:${score}%;background:${colors[sec]||'var(--accent)'}"></div>
+      </div>
+    </div>`).join('');
+
+  document.getElementById('tr_adaptive').innerHTML = Object.entries(adaptive||{}).map(([sec,info])=>`
+    <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--surface2);border-radius:8px;font-size:13px">
+      <span style="font-weight:700">${sec}:</span>
+      <span style="color:var(--muted)">Focus on <strong style="color:var(--text)">${info.difficulty}</strong> difficulty at <strong style="color:var(--text)">${info.volume}</strong> volume</span>
+    </div>`).join('');
+
+  // Question Review — wrong answers only
+  const details = result.details||{};
+  const wrongBySec = {};
+  Object.entries(details).forEach(([qid, d])=>{
+    if(!d.correct){
+      const sec = d.section||'Other';
+      if(!wrongBySec[sec]) wrongBySec[sec]=[];
+      wrongBySec[sec].push({qid, ...d});
+    }
+  });
+
+  const totalWrong = Object.values(wrongBySec).reduce((a,v)=>a+v.length,0);
+  let reviewHtml = '';
+
+  if(totalWrong===0){
+    reviewHtml = `<div style="padding:16px;background:var(--surface2);border-radius:10px;font-size:13px;color:var(--green);font-weight:600">All answers correct!</div>`;
+  } else {
+    Object.entries(wrongBySec).forEach(([sec,items])=>{
+      reviewHtml += `<div class="review-section-header">${sec} — ${items.length} wrong</div>`;
+      items.forEach(d=>{
+        reviewHtml += `<div class="review-item wrong">
+          <div class="review-q">${d.question}</div>
+          <div class="review-answers">
+            <div class="review-ans given-wrong">
+              <span class="review-tag">Your answer</span>
+              ${d.given_answer||'(not answered)'}
+            </div>
+            <div class="review-ans correct-ans">
+              <span class="review-tag">Correct answer</span>
+              ${d.correct_answer}
+            </div>
+          </div>
+        </div>`;
+      });
+    });
+  }
+  document.getElementById('tr_review').innerHTML = reviewHtml;
+}
+
+async function goToDashboard(){
+  setLoading(true,'Loading dashboard...');
+  try{ await loadDashboard(currentProfile.profile_id); }
+  catch(e){ alert(e.message); }
+  finally{ setLoading(false); }
+}
+
+// ─── DASHBOARD ────────────────────────────────────────────────────
+async function loadDashboard(profileId){
+  setLoading(true,'Loading dashboard...');
+  try{
+    const r = await api('GET',`/dashboard/${profileId}`);
+    dashboardData  = r;
+    currentProfile = r.profile;
+    renderDashboard(r);
+    showView('dashboardView');
+  }catch(e){ alert(e.message); }
+  finally{ setLoading(false); }
+}
+
+function renderDashboard(data){
+  const p = data.profile;
+  document.getElementById('dash_cat').textContent     = p.category;
+  document.getElementById('dash_company').textContent = p.company;
+  document.getElementById('dash_role').textContent    = p.role;
+
+  const rs  = data.readiness||0;
+  const arc = document.getElementById('readinessArc');
+  const col = rs>=70?'var(--green)':rs>=50?'var(--accent)':'var(--red)';
+  arc.style.stroke = col;
+  setTimeout(()=>{ arc.style.strokeDashoffset = 238.76*(1-rs/100); }, 100);
+  animNum('readinessNum',0,Math.round(rs),800);
+
+  const lvl = p.scores?.level||'beginner';
+  document.getElementById('readinessFormula').textContent =
+    `${lvl.charAt(0).toUpperCase()+lvl.slice(1)}  |  Score = 0.6 x test + 0.4 x completion`;
+
+  document.getElementById('readinessBadges').innerHTML = p.sections.map(s=>{
+    const col2 = s==='DSA'?'badge-accent':s==='System Design'?'badge-purple':'badge-blue';
+    return `<span class="badge ${col2}">${s}</span>`;
+  }).join('');
+
+  const sc      = p.scores||{};
+  const targets = data.targets||{};
+  const scDefs  = [
+    {key:'dsa_score',label:'DSA',target:targets.dsa_target,color:'var(--accent)',fill:'fill-dsa'},
+    {key:'cs_score',label:'CS Fundamentals',target:targets.cs_target,color:'var(--accent2)',fill:'fill-cs'},
+    {key:'system_design_score',label:'System Design',target:targets.system_design_target,color:'var(--accent3)',fill:'fill-sd'},
+  ];
+  document.getElementById('scoresRow').innerHTML = scDefs.map(d=>{
+    const val=sc[d.key]||0; const tgt=d.target||60; const above=val>=tgt;
+    return `<div class="score-mini">
+      <div class="sm-label">${d.label}</div>
+      <div class="sm-val" style="color:${d.color}">${val.toFixed(0)}</div>
+      <div class="progress-bar"><div class="progress-fill ${d.fill}" style="width:${val}%"></div></div>
+      <div class="sm-target">Target: ${tgt} <span style="color:${above?'var(--green)':'var(--red)'}"> ${above?'Met':'-'+Math.round(tgt-val)}</span></div>
+    </div>`;
+  }).join('');
+
+  const comp    = data.completion||{};
+  const secCols = {'DSA':'var(--accent)','CS Fundamentals':'var(--accent2)','System Design':'var(--accent3)'};
+  const secFill = {'DSA':'fill-dsa','CS Fundamentals':'fill-cs','System Design':'fill-sd'};
+  const compKey = {'DSA':'dsa','CS Fundamentals':'cs','System Design':'system_design'};
+
+  document.getElementById('sectionCardsGrid').innerHTML = p.sections.map(sec=>{
+    const ck  = compKey[sec]||'dsa';
+    const pct = comp[ck]||0;
+    const col2 = secCols[sec]||'var(--accent)';
+    const fill = secFill[sec]||'fill-dsa';
+    const topics = (data.sections[sec]||[]).length;
+    return `<div class="section-card" onclick="openSectionDetail('${sec}')">
+      <h3>${sec}</h3>
+      <p>${topics} topic groups</p>
+      <div class="progress-bar"><div class="progress-fill ${fill}" style="width:${pct}%"></div></div>
+      <div class="sc-footer">
+        <div class="sc-pct" style="color:${col2}">${pct.toFixed(1)}%</div>
+        <span style="font-size:12px;color:var(--muted)">completed</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ─── SECTION DETAIL ───────────────────────────────────────────────
+function openSectionDetail(sectionName){
+  currentSectionName = sectionName;
+  currentSectionData = dashboardData?.sections[sectionName]||[];
+  renderSectionDetail();
+  showView('sectionDetailView');
+}
+
+function backToDashboard(){ loadDashboard(currentProfile.profile_id); }
+
+function renderSectionDetail(){
+  const sec    = currentSectionName;
+  const topics = currentSectionData;
+  const fills  = {'DSA':'fill-dsa','CS Fundamentals':'fill-cs','System Design':'fill-sd'};
+
+  document.getElementById('sd_title').textContent    = sec;
+  document.getElementById('sd_subtitle').textContent = `${currentProfile?.company||''} | ${currentProfile?.role||''}`;
+
+  const totalItems = topics.reduce((a,t)=>a+t.total,0);
+  const doneItems  = topics.reduce((a,t)=>a+(t.done||0),0);
+  const overallPct = totalItems ? Math.round(doneItems/totalItems*100) : 0;
+
+  document.getElementById('sd_pct').textContent   = overallPct+'%';
+  document.getElementById('sd_bar').style.width   = overallPct+'%';
+  document.getElementById('sd_bar').className     = 'progress-fill '+(fills[sec]||'fill-dsa');
+
+  document.getElementById('sd_counts').innerHTML = `
+    <div class="opb-count"><div class="opb-dot" style="background:var(--green)"></div><span style="color:var(--muted)">${doneItems} done</span></div>
+    <div class="opb-count"><div class="opb-dot" style="background:var(--surface3)"></div><span style="color:var(--muted)">${totalItems-doneItems} left</span></div>
+    <div class="opb-count"><span style="color:var(--muted2)">Total: ${totalItems}</span></div>`;
+
+  const fill2 = fills[sec]||'fill-dsa';
+
+  document.getElementById('topicList').innerHTML = topics.map(topic=>{
+    const pct = topic.progress||0;
+    const probs = (topic.problems||[]).map((prob,i)=>`
+      <div class="problem-item">
+        <div class="prob-check ${prob.done?'done':''}" id="pc_${topic.id}_${i}"
+          onclick="toggleProblem('${sec}','${topic.id}',${i},this)">
+          ${prob.done?'v':''}
+        </div>
+        <div class="prob-name">${prob.name}</div>
+        <div class="prob-links">
+          ${prob.leetcode?`<a href="${prob.leetcode}" target="_blank" class="prob-link lc">LC</a>`:''}
+          ${prob.blog?`<a href="${prob.blog}" target="_blank" class="prob-link blog">Blog</a>`:''}
+        </div>
+      </div>`).join('');
+
+    return `<div class="topic-item" id="topic_${topic.id}">
+      <div class="topic-header" onclick="toggleTopic('${topic.id}')">
+        <div style="font-size:12px;color:var(--muted)">+</div>
+        <div class="topic-title">${topic.title}</div>
+        <div class="topic-progress-info">
+          <span class="topic-pct" id="tpct_${topic.id}">${topic.done||0} / ${topic.total}</span>
+          <div class="topic-mini-bar"><div class="topic-mini-fill ${fill2}" id="tmbar_${topic.id}" style="width:${pct}%"></div></div>
+        </div>
+        <div class="topic-arrow" id="tarrow_${topic.id}">›</div>
+      </div>
+      <div class="problem-list" id="pl_${topic.id}" style="display:none">${probs}</div>
+    </div>`;
+  }).join('');
+}
+
+function toggleTopic(tid){
+  const pl = document.getElementById('pl_'+tid);
+  const ti = document.getElementById('topic_'+tid);
+  const open = pl.style.display!=='none';
+  pl.style.display = open?'none':'block';
+  ti.classList.toggle('expanded',!open);
+  document.getElementById('tarrow_'+tid).textContent = open?'›':'v';
+}
+
+async function toggleProblem(section, topicId, itemIdx, el){
+  const pid = currentProfile.profile_id;
+  try{
+    const r = await api('POST',`/progress/${pid}/toggle`,{section,topic_id:topicId,item_idx:itemIdx});
+    const isDone = r.updated[String(itemIdx)]||false;
+    el.classList.toggle('done',isDone);
+    el.textContent = isDone?'v':'';
+
+    // Update local data
+    const topic = currentSectionData.find(t=>t.id===topicId);
+    if(topic){
+      let done=0;
+      topic.problems?.forEach((p,i)=>{
+        p.done = r.updated[String(i)]===true;
+        if(p.done) done++;
+      });
+      topic.done = done;
+      topic.progress = topic.total ? Math.round(done/topic.total*100) : 0;
+
+      const tpct = document.getElementById('tpct_'+topicId);
+      const tmbar = document.getElementById('tmbar_'+topicId);
+      if(tpct)  tpct.textContent = `${done} / ${topic.total}`;
+      if(tmbar) tmbar.style.width = topic.progress+'%';
+    }
+
+    const totalItems = currentSectionData.reduce((a,t)=>a+t.total,0);
+    const doneItems  = currentSectionData.reduce((a,t)=>a+(t.done||0),0);
+    const pct = totalItems ? Math.round(doneItems/totalItems*100) : 0;
+    document.getElementById('sd_pct').textContent = pct+'%';
+    document.getElementById('sd_bar').style.width = pct+'%';
+  }catch(e){ console.error(e); }
+}
+
+// ─── READINESS ────────────────────────────────────────────────────
+async function showReadiness(){
+  if(!currentProfile?.test_completed){ alert('Complete the initial test first.'); return; }
+  setLoading(true,'Analyzing readiness...');
+  try{
+    const r = await api('GET',`/readiness/${currentProfile.profile_id}`);
+    renderReadinessView(r);
+    showView('readinessView');
+  }catch(e){ alert(e.message); }
+  finally{ setLoading(false); }
+}
+
+function renderReadinessView(data){
+  document.getElementById('rv_subtitle').textContent = `${currentProfile.company} | ${currentProfile.role}`;
+  document.getElementById('rv_explanation').textContent = data.explanation||'';
+
+  const targets = data.targets||{};
+  const scores  = data.scores||{};
+  const scDefs  = [
+    {key:'dsa_score',label:'DSA',target:targets.dsa_target,color:'var(--accent)'},
+    {key:'cs_score',label:'CS Fundamentals',target:targets.cs_target,color:'var(--accent2)'},
+    {key:'system_design_score',label:'System Design',target:targets.system_design_target,color:'var(--accent3)'},
+  ];
+  document.getElementById('rv_scores').innerHTML = scDefs.map(d=>{
+    const val=scores[d.key]||0; const tgt=d.target||60; const above=val>=tgt;
+    return `<div class="score-mini">
+      <div class="sm-label">${d.label}</div>
+      <div class="sm-val" style="color:${d.color}">${val.toFixed(0)}</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:${val}%;background:${d.color}"></div></div>
+      <div class="sm-target">Target: ${tgt} <span style="color:${above?'var(--green)':'var(--red)'}">
+        ${above?'Met':'-'+Math.round(tgt-val)}</span></div>
+    </div>`;
+  }).join('');
+
+  const gaps = data.gaps||[];
+  document.getElementById('rv_gaps').innerHTML = gaps.length===0
+    ? `<div style="padding:16px;background:var(--surface2);border-radius:10px;font-size:13px;color:var(--green);font-weight:600">No gaps detected — you meet all targets.</div>`
+    : gaps.map(g=>`
+        <div class="gap-card sev-${g.severity}">
+          <div class="gap-head"><span class="gap-name">${g.gap_name}</span>
+            <span class="badge badge-${g.severity==='High'?'high':g.severity==='Medium'?'medium':'low'}">${g.severity}</span>
+          </div>
+          <div class="gap-vals"><span>Current: <strong>${g.current_value}</strong></span><span>Required: <strong>${g.required_value}</strong></span></div>
+          <div class="gap-explain">${g.explanation}</div>
+        </div>`).join('');
+
+  const plan = data.action_plan||{};
+  tasksDone = new Set();
+  let planHtml = '';
+  [['high_priority','High','var(--red)'],['medium_priority','Medium','var(--orange)'],['low_priority','Low','var(--green)']].forEach(([k,label,col])=>{
+    const items = plan[k]||[];
+    if(!items.length) return;
+    planHtml += `<div style="font-size:12px;font-weight:700;color:${col};text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">${label} Priority (${items.length})</div>`;
+    items.forEach((d,i)=>{
+      const id=`${k}_${i}`;
+      planHtml += `<div class="action-card">
+        <div class="ac-check" id="ac_${id}" onclick="toggleAction('${id}',this)"></div>
+        <div class="ac-body">
+          <div class="ac-task">${d.recommended_task||'—'}</div>
+          <div class="ac-why">${d.reasoning||''}</div>
+          <span class="ac-resource">${d.resource_type||'study'}</span>
+        </div>
+      </div>`;
+    });
+  });
+  document.getElementById('rv_plan').innerHTML = planHtml||`<div style="color:var(--muted);font-size:13px">No specific actions required at this time.</div>`;
+}
+
+function toggleAction(id, el){
+  if(tasksDone.has(id)){ tasksDone.delete(id); el.classList.remove('done'); el.textContent=''; }
+  else{ tasksDone.add(id); el.classList.add('done'); el.textContent='v'; }
+}
+
+// ─── UTILS ────────────────────────────────────────────────────────
+function animNum(id, from, to, dur){
+  const el=document.getElementById(id); if(!el) return;
+  const start=performance.now();
+  (function step(now){
+    const t=Math.min((now-start)/dur,1);
+    el.textContent=Math.round(from+t*(to-from));
+    if(t<1) requestAnimationFrame(step);
+  })(performance.now());
+}
+
+// ─── INIT ─────────────────────────────────────────────────────────
+async function validateAndInit(){
+  if(token && username){
+    try{
+      await api('GET','/profiles');
+      document.getElementById('navUser').textContent = username;
+      showNav(true);
+      await loadCompanyMap();
+      await loadProfiles();
+    }catch(e){
+      token=null; username=null;
+      localStorage.removeItem('cf_token'); localStorage.removeItem('cf_user');
+      showView('authView');
+    }
+  } else {
+    showView('authView');
+  }
+}
+validateAndInit();
+</script>
+</body>
+</html>
